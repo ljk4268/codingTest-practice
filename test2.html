@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    // 1. 알파벳을 입력한다.(영어 대소문자 구분안함)
+    // 2. 단어에서 가장 많이 사용된 알파벳이 무엇인지 알아내야한다.
+
+    let str = []
+
+    function result(input){
+      let text = input.toUpperCase();
+      for(let i=0; i<26; i++){
+        str.push(0)
+      }
+      let newText = text.split('')
+      newText.forEach(function(a){
+        str[a.charCodeAt()-65] += 1;
+      })
+      let num = Math.max(...str)
+      let index = str.indexOf(Math.max(...str)) + 65
+      let answer = String.fromCharCode(index);
+      return answer;
+    }
+
+    console.log(result('baaa'))
+
+  </script>
+</body>
+</html>
