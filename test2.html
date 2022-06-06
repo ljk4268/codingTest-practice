@@ -19,10 +19,14 @@
       for(let i=0; i<26; i++){
         str.push(0)
       }
+
       let newText = text.split('')
+
       newText.forEach(function(a){
         str[a.charCodeAt()-65] += 1;
       })
+    
+
       let num = Math.max(...str)
       let index = str.indexOf(Math.max(...str)) + 65
       let answer = String.fromCharCode(index);

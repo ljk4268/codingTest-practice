@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아스키코드 - 11654</title>
+</head>
+<body>
+  
+  <script>
+    // 1. 파라미터로 
+    // 2. 알파벳 소문자 알파벳 대문자 숫자 0-9 중 하나가 들어오면 
+    // 3. 아스키코듣 번호로 알아내기
+    // 4. 영어소문자인지 대문자인지 숫자 0-9인지 알아보고
+    // 5. 해당없으면 알람울리기 
+
+
+
+      function code(x){
+        if( x.length != 1) {
+          alert('길이문제')
+          return;
+        }
+
+        if (47 < x.charCodeAt() && x.charCodeAt() < 58 ){
+          return x.charCodeAt()
+        }
+        if (64 < x.charCodeAt() && x.charCodeAt() < 91 ){
+          return x.charCodeAt()
+        }
+        if (96 < x.charCodeAt() && x.charCodeAt() < 123 ){
+          return x.charCodeAt()
+        } else {
+          alert('dd')
+        }
+
+      }
+
+      console.log(code('ㄱ'))
+
+    // let str = []
+
+    // function result(input){
+    //   let text = input.toUpperCase();
+    //   for(let i=0; i<26; i++){
+    //     str.push(0)
+    //   }
+
+    //   let newText = text.split('')
+
+    //   newText.forEach(function(a){
+    //     str[a.charCodeAt()-65] += 1;
+    //   })
+    
+
+    //   let num = Math.max(...str)
+    //   let index = str.indexOf(Math.max(...str)) + 65
+    //   let answer = String.fromCharCode(index);
+    //   return answer;
+    // }
+
+    // console.log(result('baaa'))
+
+  </script>
+</body>
+</html>
