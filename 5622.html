@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 5622번</title>
+</head>
+<body>
+  <script>
+    // 알파벳에 해당하는 숫자를 넣어놔
+    // 그 알파벳이 입력되면 해당 숫자에 +1를 해 
+    // 총 합을 구하면 돼. 
+
+  // let num = {
+  //   'a' : 2 , 'b' : 2 , 'c' : 2 , 
+  //   'd' : 3, 'e' : 3 , 'f' : 3 , 
+  //   'g' : 4 , 'h' : 4, 'i' : 4 , 
+  //   'j' :5, 'k': 5 , 'l' : 5 ,
+  //   'm' : 6, 'n' : 6 , 'o' : 6,
+  //   'p' : 7 , 'q' : 7, 'r' : 7, 
+  //   ['s' : 7,]-1  't' : 8, 'u' : 8, 
+  //   ['v' : 8]-1, 'w' : 9, 'x' : 9 ,
+  //   ['y' : 9] , ['z' : 9]
+  //   18 21 24 25
+  // }
+  let data = []
+  for (let i =0; i< 26 ; i++) {
+    data[i] = parseInt(i / 3) + 2
+    if ( i == 18 ||i == 21 ||i == 24 ||i == 25 ) 
+      data[i] = parseInt(i /3) + 1
+  }
+
+
+  console.log('data들')
+  console.log(data)
+  
+  
+  function test2(str){
+    let count = 0
+    result = [...str];
+    for (let i = 0 ; i < result.length ; i++){
+      let num = data[result[i].charCodeAt()-65] + 1
+      count += num
+    }
+
+    return count
+  }
+
+  console.log(test2('WA'))
+
+
+
+
+  function test(str){
+    let result = str.toLowerCase();
+    let count = 0;
+    result = [...result];
+
+    result.forEach(function(letter){
+      count = count + num[letter] + 1
+    })
+    return count
+  }
+  
+  // 객체의 키를 변수를 통해서 전달하고 값을 호출할 수 있음 
+
+  // console.log(test('UNUCIC'))
+
+  </script>
+
+</body>
+</html>
