@@ -8,16 +8,51 @@
 </head>
 <body>
   <script>
+    // 문제 
+    // 그룹 단어란 단어에 존재하는 모든 문자에 대해서, 각 문자가 연속해서 나타나는 경우만을 말한다. 예를 들면, ccazzzzbb는 c, a, z, b가 모두 연속해서 나타나고, kin도 k, i, n이 연속해서 나타나기 때문에 그룹 단어이지만, aabbbccb는 b가 떨어져서 나타나기 때문에 그룹 단어가 아니다.
+
+    // 단어 N개를 입력으로 받아 그룹 단어의 개수를 출력하는 프로그램을 작성하시오.
+
+
+    // 문제풀이 1. 배열을 받기 전에 단어 하나를 입력받아 그룹단어인지 알아보기. 
+    // 첫번째 입력받을 단어 'happy'
+
+    function test1(str){
+      let count = 0;
+      let checked = true;
+      let arr = []; // 문자 하나하나를 비교하기위해 빈배열이 필요 
+      str = [...str]; //spread operator 문법을 활용해서 문자를 해체해주고, 배열로 만들어준다. 
+      for( let i =0; i < str.length; i++ ){
+        if ( !arr.includes(str[i]) ) { // if문 안에는 true가 들어가야하니까, arr 배열안에 str[i]이 들어있지 않으면 
+          arr.push(str[i]); // arr배열안에 str[i]를 넣어준다. 
+          console.log(arr)
+        } else { // arr배열에 str[i]문자가 있는 경우 여기로 넘어오겟지? 
+          if ( str[i] != str[i - 1]){ // 현재 문자와 바로 직전 문자가 같은 문자가 아니라면
+            checked = false; // count가 되지 않게 checked를 false로 만들어주고 
+            break; // break로 if문을 끝내버린다.
+          }
+        }
+      }
+
+      if (checked) count ++;
+
+      console.log('확인중', count);
+    }
+
+    test1('happy');
+
+    // 문제풀이 2. 입력값을 배열로 받을 떄의 상황 다루기. 
+    // 입력받을 배열 ['aba','abab','abcabc','a']
+
     
     function test(str){
       let count = 0;
       
-      str.forEach(function(word){
-        let arr = [];
-        let checked = true;
+      str.forEach(function(word){ // 배열이니까 forEach문으로 각 배열 한번씩 돌아주고 
+        let arr = []; // 새로운 배열 돌때마다 arr 초기화 
+        let checked = true; // 새로운 배열 돌떄마다 checked도 초기화
 
-        word = [...word]
-        console.log(word)
+        word = [...word] // 위 코드와 동일하게 spread operator 문법을 활용해서 문자를 해체해서 배열로 만들어줌. 
 
         for(let i=0; i<word.length; i++){
           if ( !arr.includes(word[i]) ){
@@ -37,6 +72,8 @@
       count ++;
 
     })
+
+    // -- 풀다가 만난 문제들 
     // 문제의 원인 
     // checked가 false가 됨
     // checked가 false가 되는 부분으로 감 
