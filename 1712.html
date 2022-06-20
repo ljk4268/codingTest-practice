@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 1712번</title>
+</head>
+<body>
+  <!-- 고정비용 A: 1000 -->
+  <!-- 가변비용 B: 70 -->
+  <!-- 노트북을 한 대 생산하는 데는 총 1,070만원 -->
+  <!-- 열 대 생산하는 데는 총 1,700만원 -->
+  <!-- 노트북 가격이 C만원으로 책정 -->
+  <!-- 총 수입(판매비용) > 총 비용(=고정비용+가변비용) -->
+<script>
+  
+  function test(a,b,c){
+    let amount = 0;
+      amount = a / ( c - b ) 
+      amount ++;
+    if( amount < 1) {
+      return -1
+    }
+    return amount
+  }
+
+  console.log(test( 1000,70,170 ))
+</script>
+  
+</body>
+</html>
