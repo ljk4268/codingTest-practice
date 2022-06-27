@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 2839번</title>
+</head>
+<body>
+  <script>
+    // 설탕 N킬로그램 배달
+    // 설탕은 봉지에 담겨있는데 2가지 종류가 있음
+    // 3킬로그램 5킬로그램
+    // 최대한 적은 봉지로 배달해야함
+    // 18킬로그램일대 5킬로그램 3개와 3킬로그램 1개 
+    // 상근이가 N킬로그램 배달해야할 때 몇개의 봉지를 가져가면 되는지
+    // 최소값 구하는듯 
+    // 정확하게 N킬로그램을 만들 수 없다면 -1을 출력
+
+    // 19킬로일 때 
+    // 일단 5로 나눠 3개가 나오지? 
+    // 4라는 나머지가 나와 그걸 3으로 나눠 
+    // 값이 안떨어지네? 
+    
+    // 코딩테스트는 배열과 for, if문이다. 
+
+    // n킬로그램이  들어오면 
+    // 제일먼저 5로 나눠준다. 
+
+    let fivesugar = 0;
+    let threesugar = 0;
+    let remainder = 0;
+
+    function test(num){
+      fivesugar =  parseInt(num / 5)
+      remainder =  num % 5
+
+      while( fivesugar >= 0 ){
+        threesugar = remainder / 3
+        remainder = remainder % 3
+
+        if (remainder == 0){
+          return `5kg ${fivesugar} 3kg ${threesugar}
+          `
+        } 
+
+        fivesugar = fivesugar - 1
+        remainder = num - (fivesugar*5)
+        
+        if ( fivesugar == -1 ){
+          return -1
+        }
+      }
+    }
+
+    console.log(test(11))
+    
+  </script>
+  
+</body>
+</html>

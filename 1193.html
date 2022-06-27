@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 1193번</title>
+</head>
+<body>
+  <script>
+    function test(x){
+      let forward = 1;
+      let behind = 1;
+      let fOperator 
+      let bOperator
+
+      for(let i=0; i < x-1; i++){
+        if (forward == 1 && (behind % 2 ) == 1){
+          bOperator = +1
+          fOperator = +0
+        }
+        if (forward == 1 && (behind % 2 ) == 0){
+          bOperator = -1
+          fOperator = +1
+        }
+        if ((forward % 2 ) == 0 && behind == 1){
+          bOperator = +0
+          fOperator = +1
+        }
+        if ((forward % 2 ) == 1 && behind == 0){
+          bOperator = +1
+          fOperator = -1
+        }
+
+        forward = forward + fOperator
+        behind = behind + bOperator
+
+    }
+
+      console.log(forward, behind)
+
+  }
+
+  test(2)
+    
+  </script>
+</body>
+</html>
