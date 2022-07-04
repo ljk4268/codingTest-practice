@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 10757번</title>
+</head>
+<body>
+  <script>
+    // 주어진 A,B를 문자로 만들어야함
+    // 맨 끝자리부터 한개씩 다시 숫자로 만들어서 둘이 더해줌 
+    // 더해준 값에 끝자리는 남겨두고 
+    // 앞자리에 값이 있다면 변수에 저장해둠 
+    // 맨 끝부터 한개씩 앞으로 나오면서 두 수 더해줌
+    // 변수에 저장된 값이 있다면 변수에 저장된 값이랑 같이 두 수 더해줌 
+    // 반복
+    // 
+
+    function test(a, b){
+      let first = [...a]
+      let second = [...b]
+
+
+      if ( first.length > second.length){
+        let count = first.length - second.length
+        for( let i = 0; i < count; i++){
+          second.unshift('0')
+        }
+      } else if (first.length < second.length ) {
+        let count = second.length - first.length
+        for( let i = 0; i < count; i++){
+          second.unshift('0')
+        }
+      }
+
+      let arr = []
+      let carry = 0
+
+      for( let i = first.length - 1; i >= 0; i--){
+        let result = Number(first[i]) + Number(second[i]) + carry
+        if ( result >= 10 ){
+          carry = 1; 
+          result = result - 10;
+          arr.unshift(result)
+        } else {
+          carry = 0;
+          arr.unshift(result)
+        }
+      }
+
+      if ( carry == 1) {
+        arr.unshift(carry)
+      }
+
+      return arr.join('');
+
+    }
+
+    console.log(test('9223372036854775807','9223372036854775808'))
+
+  </script>
+</body>
+</html>
