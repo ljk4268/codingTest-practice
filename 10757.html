@@ -8,7 +8,12 @@
 </head>
 <body>
   <script>
-    // 주어진 A,B를 문자로 만들어야함
+    // 큰 수 A + B
+    // 두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.
+    // 첫째 줄에 A와 B가 주어진다. (0 < A,B < 1010000)
+
+    // 주어진 A,B를 문자로 받기.
+
     // 맨 끝자리부터 한개씩 다시 숫자로 만들어서 둘이 더해줌 
     // 더해준 값에 끝자리는 남겨두고 
     // 앞자리에 값이 있다면 변수에 저장해둠 
@@ -18,41 +23,69 @@
     // 
 
     function test(a, b){
+      // 받은 문자들을 배열에 하나씩 담아야 하니까 
+      // Spread Operator문법 써서 문자들을 하나씩 분해해주고 배열에 넣어줌. 
       let first = [...a]
       let second = [...b]
+      let arr = []
+      let carry = 0
+      let length = 0
+      
 
-
+      // 입력받은 a,b가 똑같은 자리수가 아닐 수 있으니까 
+      // 이럴경우 대비해서 두개가 같은 자리수가 되게끔 해줘야함. 
+      // if조건문으로 입력받은 두 수의 길이를 비교하고 
+      // 더 큰 쪽의 길이에 맞춰서 길이가 작은쪽의 배열에 '0'추가해줌. 
+      // 뒤에서부터 더해줄거니까 추가해주는 '0'은 배열의 맨 앞쪽에 추가될 수 있게 
+      // unshift 함수를 사용해서 넣어줌. 
       if ( first.length > second.length){
         let count = first.length - second.length
         for( let i = 0; i < count; i++){
           second.unshift('0')
         }
+        length = first.length;
       } else if (first.length < second.length ) {
         let count = second.length - first.length
         for( let i = 0; i < count; i++){
-          second.unshift('0')
+          first.unshift('0')
         }
+      } else {
+        length = first.length;
       }
-
-      let arr = []
-      let carry = 0
-
-      for( let i = first.length - 1; i >= 0; i--){
+      
+      // 이제 입력받은 두 수를 더해줄건데 
+      // 배열의 처음이 아닌 끝부터 더해줘야해! 
+      // 배열의 끝자리 인덱스는 입력받은 수의 길이로 알 수 있지! 
+      // 근데 배열 인덱스는 0 부터 시작하고 정수는 1부터 시작하니까 길이에서 -1을 해줘 
+      // i 는 0 과 같거나 0보다 클때까지 돌아줘야하고 돌떄마다 i가 1씩 빼져야해 
+      for( let i = length - 1; i >= 0; i--){
+        // 두 수르 더하는거니까 끝자리 인덱스부터 차근차근 더해주는데 
+        // 문자로 들어가있으니까 Number함수써서 문자를 숫자로 변경해주고 더해줘 
+        // carry에 남아있는 수가 있다면 같이 더해주고! 
         let result = Number(first[i]) + Number(second[i]) + carry
+        // if 조건문으로 result가 10보다 크면 
+        // carry에 1을 할당해주고 
+        // result는 - 10을 해줘서 1의 자리만 남겨놔 
+        // 그리고 배열에 남은 1의 자리를 맨 앞쪽에 넣어줘 
         if ( result >= 10 ){
           carry = 1; 
           result = result - 10;
           arr.unshift(result)
         } else {
+          // result가 10보다 작으면 carry에는 0을 
+          // 나온 값을 배열의 맨 앞에 넣어줘. 
           carry = 0;
           arr.unshift(result)
         }
       }
-
+      // for문을 다 돌고 나왔는데 carry에 1이 할당되어있으면 
+      // 맨 마지막으로 배열앞에 1을 넣어줘야해. 
       if ( carry == 1) {
         arr.unshift(carry)
       }
 
+      // 배열을 리턴해주는데 
+      // join함수로 배열의 형태가 아닌 숫자의 형태로 리턴하게 해줌. 
       return arr.join('');
 
     }
