@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 2525번</title>
+</head>
+<body>
+  <script>
+  
+  function test(a, b, c){
+    let H = a 
+    let M = b
+
+    let hour = parseInt((b + c) / 60); 
+    // 1. 나누기 할떄 주의 실수(소수점형태)로 바뀜
+    let minute = (b + c) % 60;
+    H = (a + hour) % 24 ;
+    M = minute;  
+    
+    return String(H) + ' ' + String(M);
+
+  }
+
+  console.log(test(23, 48, 25))
+  console.log( 40 % 60)
+  
+</script>
+</body>
+</html>
