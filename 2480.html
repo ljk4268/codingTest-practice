@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 2480번</title>
+</head>
+<body>
+  <script>
+  
+  // 1에서부터 6까지의 눈을 가진 3개의 주사위
+  // 규칙
+  // 1. 같은 눈이 3개가 나오면 10,000원+(같은 눈)×1,000원의 상금
+  // 2. 같은 눈이 2개만 나오는 경우에는 1,000원+(같은 눈)×100원의 상금
+  // 3. 모두 다른 눈이 나오는 경우에는 (그 중 가장 큰 눈)×100원의 상금
+
+  // 3개의 주사위 눈을 비교해야함. 
+  // length : 3 >> 3. 모두 다른 눈이 나오는 경우
+  // length : 2 >> 2. 같은 눈이 2개만 나오는 경우 
+  // length : 1 >> 1. 같은 눈이 3개가 나오는 경우 
+
+  function getKeyByValue(object, value) {
+    return Object.keys(object).find(key => object[key] === value);
+}
+
+  function test(...rest){
+    let arr = rest
+    let result = {};
+    let num;
+    arr.forEach(function(a){
+      if(result[a] > 0){ 
+        result[a] = result[a] +1; 
+      } else {
+        result[a] = 1;
+      }
+    })
+
+    let length = Object.keys(result).length
+    let key = Object.keys(result)
+
+    if( length == 3 ){
+      num = Math.max(...key)
+      return num * 100
+    } 
+    
+    if ( length == 2 ){
+      num = getKeyByValue(result, 2)
+      return num * 100 + 1000
+    } 
+    
+    if ( length == 1 ){
+      num = parseInt(...key)
+      return num * 1000 + 10000
+    }
+    
+  }
+
+  // console.log(test(2,2,2))
+
+
+
+  // 1에서부터 6까지의 눈을 가진 3개의 주사위
+  // 규칙
+  // 1. 같은 눈이 3개가 나오면 10,000원+(같은 눈)×1,000원의 상금
+  // 2. 같은 눈이 2개만 나오는 경우에는 1,000원+(같은 눈)×100원의 상금
+  // 3. 모두 다른 눈이 나오는 경우에는 (그 중 가장 큰 눈)×100원의 상금
+
+  // num 3 >> 같은 눈 3개야 
+ // num 0 >> 모두 다 다른 눈 
+
+  function test2(...rest){
+    let arr = rest
+    let num = 0;
+    let sameNum;
+    console.log(arr)
+
+      for(let i=0; i < arr.length; i++){
+        for(let j = i+1; j < arr.length; j++){
+          if( arr[i] == arr[j]) {
+            num++;
+            sameNum = arr[i]
+          }
+        }
+      }
+    console.log(sameNum)
+
+    if ( num == 3 ){
+      return sameNum * 1000 + 10000
+    }
+    if ( num == 0 ) {
+      let result = Math.max.apply(null, arr)
+      return result * 100
+    }
+    if ( num == 1 ){
+      return sameNum * 100 + 1000
+    }
+  }
+
+  console.log(test2(2,2,3))
+
+
+  
+</script>
+</body>
+</html>
