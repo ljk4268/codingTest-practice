@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 10950번</title>
+</head>
+<body>
+  <script>
+    function test(a, b){
+      let first = a;
+      let second = b;
+      let result = []
+
+      if( a.length > b.length){
+        first = a;
+        second = b;
+      } else {
+        first = b;
+        second = a;
+      }
+
+      let num = Math.abs(first.length - second.length)
+
+      for ( let i = 0 ; i < num; i++) {
+        second.push(0)
+      }
+      for ( let i = 0 ; i < first.length; i++ ){
+        result.push(first[i] + second[i])
+      }
+
+      return result.join();
+      
+    }
+
+
+  console.log(test([1,3,4,1,1],[1,2,3,9,5]))
+
+
+
+  </script>
+</body>
+</html>
