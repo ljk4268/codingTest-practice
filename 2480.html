@@ -24,32 +24,50 @@
     return Object.keys(object).find(key => object[key] === value);
 }
 
+// 입력받은 파라미터를 배열로 만들어주는 rest파라미터 문법 
   function test(...rest){
     let arr = rest
+    // 빈 객체 하나 만들어줌 
     let result = {};
     let num;
+    // 파라미터를 배열로 만든 arr배열을 forEach문으로 한 번씩 돌려줌 
     arr.forEach(function(a){
+      //  // result 객체 안에 해당 key와 value가 있으면 
+      // value값에 1을 더해줌 
       if(result[a] > 0){ 
         result[a] = result[a] +1; 
       } else {
+        // result 객체 안에 해당 값이 없으면
+        // result[a] = 1 로 key와 value를 할당해줌 
         result[a] = 1;
       }
     })
-
+    // 객체 안의 길이를 구해줌 
     let length = Object.keys(result).length
+    // 객체 안의 키값만 배열로 반환
     let key = Object.keys(result)
 
+
+    // 길이가 3이면 모두 다른 눈이 나온 경우임. 
     if( length == 3 ){
+      // 모두 다른 눈 중 가장 큰 눈에 계산을 해야하니까 배열안에서 최대값을 구함
+      // Math.max()함수는 입력값으로 받은 0개 이상의 숫자 중 가장 큰 숫자를 반환 
       num = Math.max(...key)
+      // 3. 모두 다른 눈이 나오는 경우에는 (그 중 가장 큰 눈)×100원의 상금
       return num * 100
     } 
-    
+    // 2. 같은 눈이 2개만 나오는 경우에는 1,000원+(같은 눈)×100원의 상금
     if ( length == 2 ){
+      // 같은 눈이 2개 나오는 경우니까 
+      // result 객체 안의 어떠한 key에 값이 2로 설정되어 있을거임. 
+      // 값으로 키를 찾는 함수로 그 어떠한 key를 찾아냄. 
       num = getKeyByValue(result, 2)
       return num * 100 + 1000
     } 
-    
+    // 1. 같은 눈이 3개가 나오면 10,000원+(같은 눈)×1,000원의 상금
     if ( length == 1 ){
+      // result 객체 안에 key는 1개 일거임. 
+      // 배열을 벗겨내고 숫자로 만들어주고 계산! 
       num = parseInt(...key)
       return num * 1000 + 10000
     }
@@ -59,6 +77,8 @@
   // console.log(test(2,2,2))
 
 
+
+  // @@ 또 다른 풀이 
 
   // 1에서부터 6까지의 눈을 가진 3개의 주사위
   // 규칙
@@ -73,11 +93,13 @@
     let arr = rest
     let num = 0;
     let sameNum;
-    console.log(arr)
 
+    // 중복 반복문으로 배열안에 있는 값끼리 1번씩 비교하게 만들어줌 
       for(let i=0; i < arr.length; i++){
         for(let j = i+1; j < arr.length; j++){
           if( arr[i] == arr[j]) {
+            // 만약 값이 같으면 변수 num에 1을 더해주고 
+            // 같은 값을 변수 sameNum에 저장해줌 
             num++;
             sameNum = arr[i]
           }
