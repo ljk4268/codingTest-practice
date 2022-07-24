@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 11021번</title>
+</head>
+<body>
+  <script>
+
+    function test(num, num2){
+      let first = num
+      let second = num2
+      let str = ''
+
+      for( let i = 0; i < first.length; i++ ){
+        let addNum = Number(first[i] + second[i])
+        str = str + 'Case #' + (i+1) + ':' + addNum + '\n'
+      }
+      return str
+    }
+
+    console.log(test([1,2,3,9,5], [1,3,4,8,2]))
+  </script>
+</body>
+</html>
