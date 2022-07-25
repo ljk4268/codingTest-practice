@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 10952번</title>
+</head>
+<body>
+  <script>
+    // 0보다 크거나 같고, 99보다 작거나 같은 정수가 주어질 때 다음과 같은 연산
+    // 주어진 수가 10보다 작다면 앞에 0을 붙여 두 자리 수로 만들고
+    // 각 자리의 숫자를 더한다.
+    // 주어진 수의 가장 오른쪽 자리 수와 앞에서 구한 합의 가장 오른쪽 자리 수를 이어 붙이면 새로운 수를 만들 수 있다.
+    // 26부터 시작한다. 2+6 = 8
+    // 새로운 수는 68이다. 6+8 = 14
+    // 새로운 수는 84이다. 8+4 = 12
+    // 새로운 수는 42이다. 4+2 = 6
+    // 새로운 수는 26
+    // 따라서 26의 사이클의 길이는 4
+
+    // 정수를 받는다. 
+    // 각 자리수 합한다. 
+    // 정수 가장 오른쪽 자리랑 합한 값 가장 로른쪽 자리랑 합친다. 
+    // 받은 정수랑 똑같은 수가 나올때까지
+    
+
+    function test(num){
+      // 받은 정수 변수에 저장 
+      let firstNum = num
+      // 카운트 수 셀 거 변수
+      let count = 0
+
+      // 더한값 변수 
+      let add = 0
+
+      // 받은 정수 문자열로 만들고 문자 하나하나 배열로 만들기
+      num = num.toString().split('')
+
+      // 반복되는거 2구간 
+      // add 값이 달라 
+      // 두번째 구간 num에 배열 인덱스 넣어줬어 [1]
+      // 첫번째 구간에는 배열에 숫자 하나 ㄷ르어가있으니까 인덱스 쓸 필요 없음 
+      // add 두자리 값으로 고정시킬라고 If문 씀
+
+
+      // while 반복문 돌리는데 firstNum값이랑 num값이 다를 때 안에 코드 돌아가
+      // 같아지면 끝나
+      while( firstNum != num ){
+
+        // 배열로 만든 num 인덱스로 꺼내서 숫자로 만들어주고 더해줘 
+      add = Number(num[0]) + Number(num[1])
+      // 더한 값이 10보다 작으면 
+      if( add < 10 ){
+        // 숫자 앞에 '0'을 붙여줘
+        // 문자열이랑 숫자랑 합치면 문자열 되나봐 
+        add = '0' + add
+        // 더한값이 10보다 크면 
+      } else {
+        // 그냥 add 문자열로 만들어줘 
+        add = add.toString()
+      }
+
+      // num에 num[1]째랑 add.split('')로 배열 만들어서 가장 끝자리[1]랑 더해줘
+      num = num[1] + add.split('')[1]
+
+      //반복문 돌 떄마다 count +1 해줌 
+      count ++;
+      // 느슨한 비교일 때는 문자열이랑 숫자랑 같은거 보이면 그냥 같다고 보는 듯 
+      // 엄격한 비교면 안된다고 나옴 
+      console.log(firstNum != num, firstNum, num)
+    }
+    return count
+  
+  }
+
+
+     // 정수를 받는다.
+    console.log(test(26))
+
+
+  </script>
+</body>
+</html>

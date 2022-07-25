@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 10871번</title>
+</head>
+<body>
+  <script>
+    // 정수 N개로 이루어진 수열 A
+    // 정수 X
+    // A에서 X보다 작은 수를 모두 출력하는 프로그램
+    
+    function test(A, X){
+      let arr = [...A];
+      let newArr = [];
+      for( let i = 0; i < arr.length; i++ ){
+        if ( arr[i] < X ){
+          newArr.push(arr[i])
+        }
+      }
+      console.log(newArr.toString().replaceAll(',',' '))
+      // return newArr.join(' ')
+    }
+
+    console.log(test([1,10,4,9,2,3,8,5,7,6], 5))
+
+
+  </script>
+</body>
+</html>
