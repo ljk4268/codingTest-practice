@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 10818번</title>
+</head>
+<body>
+  <script>
+    //N개의 정수가 주어진다.  
+    //최솟값과 최댓값을 구하는 프로그램을 작성
+    // 배열로 받아
+    // 배열요소 하나하나 꺼내 
+    // 꺼내서 각각 비교해 비교할건데 
+    // 변수로 숫자 하나 만들어놔. 
+    // 숫자 변수랑 배열 요소 하나랑 비교해 
+    // 큰거 숫자변수에 할당해 
+
+  
+
+    function test(arr){
+
+      let newArr = arr;
+      let maxNum = newArr[0];
+      let minNum = newArr[0];
+      
+      for( let i = 0; i < newArr.length; i++){
+        
+        if( newArr[i] > maxNum ) {
+          maxNum = newArr[i];
+        }
+        if ( newArr[i] < minNum){
+          minNum = newArr[i];
+        }
+      }
+
+      return `${maxNum}, ${minNum}`
+
+    }
+
+    console.log(test([20, 10, 35, 30, 7]))
+</script>
+</body>
+</html>
