@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 3052번</title>
+</head>
+<body>
+  <script>
+    
+    // 두 자연수가 있을 때 나눠서 나머지를 구하면 a,b가 나옴
+    //  7, 14, 27, 38을 3으로 나눈 나머지는 1, 2, 0, 2이다. 
+    // 10개의 숫자를 입력받고 
+    // 42로 나눈 나머지를 구한다. 
+    // 다음 서로 다른 값이 몇개 있는지 출력한다. 
+
+    // 입력값은 배열로 받는다. 
+    // 빈 배열을 하나 만들어 
+    // 입력받은 배열을 반복문 돌려 
+    // 반복문으로 하나씩 꺼내서 42로 나눠줘서 나머지를 구해
+    // 빈 배열안에 나머지를 넣어주는데 
+    // 이미 들어간 값이 있으면 넣지마 >> 아마 if문인거 같아 
+    // 빈 배열안에 나머지값들이 들어가있을거고 
+    // 그거의 길이를 구하면 서로 다른 나머지가 몇 개 있는지 알 수 있어 
+
+    // function test(array){
+    //   let remainArray = [];
+
+    //   for( let i = 0; i < array.length; i++ ){
+    //     let remain = array[i] % 42
+
+    //     if(!remainArray.includes(remain)){
+    //       remainArray.push(remain)
+    //     }
+
+    //   }
+        
+    //   return remainArray.length;
+
+
+    // }
+    // console.log(test([1,84,252,420,840,126,42,84,420,126]))
+
+    function test1(arr){
+
+      let remainArray = new Array(42).fill(0);
+      let count = 0;
+
+      
+      for( let i = 0; i < arr.length; i++ ){
+        let remain = arr[i] % 42
+        remainArray[remain] += 1;
+      }
+
+      for( let j = 0; j < remainArray.length; j++ ){
+        if(remainArray[j] != 0){
+          count ++;
+        }
+      }
+      console.log(count)
+    }
+
+    test1([39,40,41,42,43,44,82,84,83,85])
+
+  </script>
+</body>
+</html>
