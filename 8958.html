@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 8958번</title>
+</head>
+<body>
+  <script>
+    // O = 1 
+    // X = 0
+    // O 가 연속되면 +1 
+    // X 가 나오면 X = 0; O = 1로 reset
+    // 오 다음에 오 나오면 오 값에 +1 
+    // 엑스 나오면 오 값은 다시 1로 리셋
+    // 엑스는 값이 0으로 동일 
+    // 배열로 두고 
+    // 배열[i] 랑 배열 [i+1] 값이 동일한지 비교 
+
+    // 문제는 오일때 1부터 시작해서 연속될경우 이전수보다 1개 큰 수로 계쏙 더할 수 있음 
+    // 그러다가 엑스를 만나면 더해주지 않아. 
+    // 맨처음 오는 1로 초기화되고 
+    // 전체총합 변수에 오를 더해줘 
+
+    // 계속 오를 만날때마다 오를 플러스 해줘 플러스 1해줘 
+    // 엑스를 만나면 총합 변수에 아무것도 더하지 않아 
+
+    // 그리고 엑스를 만나면 오를 1로 초기화해 
+    // 중간에 더하는 내용까지 추가를 해줘
+
+    function test(N){
+      let arr = [...N]
+      let num = 0
+      let O = 1;
+
+      for ( let i = 0; i < arr.length; i++ ){
+        if ( arr[i] == 'O'){
+          num = num + O
+          O ++;
+        } 
+        if( arr[i] == 'X' ){ 
+          O = 1;
+        }
+      }
+      console.log(num)
+    }
+    
+
+    test('OOXXOOXXOO')
+  </script>
+</body>
+</html>
