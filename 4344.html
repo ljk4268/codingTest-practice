@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 4344번</title>
+</head>
+<body>
+  <script>
+
+    // 먼저 학생들이 받은 총 점수의 평균값을 구한다. 
+    // 각 점수들을 합하고 명수로 나눠준 다음 100을 곱해준다. 
+    function test(a, b){
+
+      let students = a
+      let scores = b
+
+      let totalScore = 0
+      let averageScore = 0
+      let passAverage = 0
+      let result = 0
+
+      for ( let i = 0; i < scores.length; i++ ){
+        totalScore += scores[i]
+      }
+
+      averageScore = totalScore / students
+
+
+      for ( let i = 0; i < scores.length; i++ ){
+        if ( scores[i] > averageScore ) {
+          passAverage += 1;
+        }
+      }
+
+      result = (passAverage / students) * 100
+
+      return result.toFixed(3)
+    }
+
+    console.log(test(7, [100,95,90,80,70,60,50]))
+
+  </script>
+</body>
+</html>
