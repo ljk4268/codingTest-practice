@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 11720번</title>
+</head>
+<body>
+  <script>
+
+// 입력으로 주어진 숫자 n개의 합 출력하기 
+
+    function test(num){
+      let arr = [...num];
+      let result = 0;
+
+      for( let i = 0; i < arr.length; i++ ){
+        result += Number(arr[i])
+      }
+      console.log(result)
+    }
+
+    test('10987654321')
+    
+  </script>
+</body>
+</html>
