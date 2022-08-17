@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 바깥쪽 함수는 안의 함수를 리턴해주는 역할 
+    // 호출하지 않고 그냥 함수 이름만 썼을 때는 함수 정의부를 가지고 온다. 
+    // 호출을 하면 안의 함수의 리턴되는 결과값을 보여준다. 
+
+    // function celebrityName(firstName) {
+
+    //   var nameIntro = "This is celebrity is ";
+
+    //   function lastName(theLastName) {
+    //       return nameIntro + firstName + " " + theLastName;
+    //     }
+
+    //   return lastName;
+    // }
+
+
+    // let mjName = celebrityName('창현')
+
+    // console.log(mjName('오'))
+
+    function celebrityID() {
+
+        var celebrityID = 999;
+
+        return {
+            getID: function() {
+
+                return celebrityID;
+            },
+            setID: function(theNewID) {
+
+                celebrityID = theNewID;
+            }
+        }
+    }
+
+    let mjD = celebrityID();
+
+    // mjD는 getID와 setID 함수를 가지고 있다. 
+    // console.log(mjD.getID());
+    // console.log(mjD.setID(888));
+    // console.log(mjD.getID());
+
+    
+
+  </script>
+</body>
+</html>

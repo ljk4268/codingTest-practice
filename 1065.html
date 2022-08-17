@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 1065번</title>
+</head>
+<body>
+  <script>
+    // 5,7,9,11 일정하게 차이가 나는 수 >> 등차수열
+    // 정수 x의 각 자리가 등차수열을 이루면 그 수를 한수 
+    // 100 101 102 103 104 105 106 107 108 109 110
+
+
+    
+
+    function test(num){
+      let arr = [];
+
+      for( let i=1; i<=num; i++){
+        arr.push(i)
+      }
+
+      
+      let count = 0;
+
+      for ( let i = 0; i < arr.length; i++){
+        let str = String(arr[i])
+        let str2 = [...str]
+        let rest = null;
+
+
+        for ( let j = 0; j < str2.length-1; j++){
+          if ( rest == null ){
+            rest = (Number(str2[j] - Number(str2[j+1])))
+          }
+          if ( rest != null ){
+              if ( rest == (Number(str2[j]) - Number(str2[j+1]))){
+              rest = (Number(str2[j]) - Number(str2[j+1]))
+            } else {
+              console.log(str2)
+              count += 1;
+            }
+            
+          }
+        }
+      }
+
+      console.log(count)
+    }
+
+    function test(num){
+      let count = 0;
+
+      for ( let i = 1; i <= num; i++){
+        let str2 = [...String(i)]
+        let rest = str2.length > 1 ? Number(str2[0] - Number(str2[1])) : 0;
+        
+        for ( let j = 0; j < str2.length-1; j++){
+            if ( rest != (Number(str2[j]) - Number(str2[j+1]))){
+                count += 1;
+            } 
+        }
+      }
+      console.log(count)
+    }
+    test(110)
+
+
+    function test2(num2){
+      let arr = String(num2)
+      let arr2 = [...arr]
+    
+      let rest = null;
+      let count = 0; 
+
+      for ( let i=0; i<arr2.length-1; i++){
+        if ( rest == null ){
+          rest = (Number(arr2[i]) - Number(arr2[i+1]))
+        }
+        if ( rest != null ){
+          if ( rest == (Number(arr2[i]) - Number(arr2[i+1]))){
+            rest = (Number(arr2[i]) - Number(arr2[i+1]))
+          } else {
+            count += 1;
+          }
+        }
+        
+      }
+      //console.log('한수', count)
+    }
+
+    test2(99)
+    
+  </script>
+</body>
+</html>
