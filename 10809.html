@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 10809번</title>
+</head>
+<body>
+  <script>
+    // 알파벳 소문자로만 이루어진 단어 S가 파라미터
+    // 각각 알파벳에 대해 단어에 포함되는 경우 해당 알파벳의 위치를 출력 
+    // 단어에 포함되지 않는 알파벳은 -1로 출력 
+
+    // 해당 알파벳이 등장하는 위치. 
+    // 단어의 첫번째 글자는 0번째 위치.
+
+    // a : 1 / b : 0 / c: -1 / ...
+
+    //['b', 'a', 'e', 'k', 'j', 'o', 'o', 'n']
+    //  0    1    2     3   4    5    6   7
+
+    function test(str){
+      let strArr = [...str];
+      let eng = [];
+      let result = [];
+
+      for ( let j = 97; j <= 122; j++){
+        eng.push(String.fromCharCode(j))
+      }
+
+      for ( let i = 0; i < eng.length; i++ ){
+        result.push(strArr.indexOf(eng[i]))
+      }
+
+      return result;
+    }
+
+
+    console.log(test('baekjoon'))
+
+  </script>
+</body>
+</html>
