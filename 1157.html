@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 1157번</title>
+</head>
+<body>
+  <script>
+    //알파벳으로 된 단어가 주어지면 
+    // 가장 많이 사용된 알파벳이 무엇인지 알아내는 프로그램 
+    // 가장 많이 사용된 알파벳이 여러개 존재하면 ? 을 출력. 
+
+
+    function test(str){
+      let strArr = [...str.toLowerCase(str)];
+      let obj = {};
+      let count = 0
+      let result = [];
+
+      for ( let i = 0; i < strArr.length; i++ ){
+        if(Object.keys(obj).includes(strArr[i]) == false){
+          obj[strArr[i]] = 1;
+        } else {
+          obj[strArr[i]] += 1;
+        }
+        if ( count < obj[strArr[i]] ){
+          count = obj[strArr[i]]
+        }
+      }
+
+      for ( let key in obj ){
+        if ( count == obj[key] ){
+          result.push(key)
+        }
+      }
+
+      if(result.length != 1){
+        return '?'
+      } else {
+        return result;
+      }
+
+
+    }
+
+    
+
+    console.log(test('baaa'))
+  </script>
+</body>
+</html>
