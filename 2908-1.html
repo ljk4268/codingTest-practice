@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 734와 893을 칠판에 적었다면
+    // 상수는 이 수를 437과 398로 읽는다.
+    // 상수는 두 수중 큰 수인 437을 큰 수라고 말할 것
+    // 두 수가 주어졌을 때, 상수의 대답을 출력하는 프로그램을 작성
+
+    function test(num, num2){
+      let testNum = [...num];
+      let testNum2 = [...num2];
+      let word = ''
+      let word2 = ''
+      let arr = []
+
+      for ( let i = testNum.length - 1; i >= 0; i-- ){
+        word = Number(word + testNum[i])
+      }
+      arr.push(word)
+
+      for ( let i = testNum2.length - 1; i >= 0; i-- ){
+        word2 = Number(word2 + testNum2[i])
+      }
+      arr.push(word2)
+
+      let result = Math.max(...arr)
+      return result
+
+
+    }
+    console.log(test('734','893'))
+  </script>
+</body>
+</html>
