@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 2941번</title>
+</head>
+
+<body>
+  <script>
+    function test(str) {
+      const croatia = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z='];
+      const arr = []
+      let count = 0;
+
+      let sameStatus = false;
+      let i = 0;
+
+      for (let i = 0; i < str.length; i++) {
+        for (let j = 0; j < croatia.length; j++) {
+          for (let k = 0; k < croatia[j].length; k++) {
+            if (str[i + k] == croatia[j][k]) {
+              sameStatus = true
+            }
+            else {
+              sameStatus = false;
+              break;
+            }
+          }
+          if (sameStatus) {
+            i += croatia[j].length - 1;
+            sameStatus = false;
+            break;
+          }
+        }
+        count++;
+      }
+
+      // console.log(count)
+
+    }
+
+    test('ljes=njak')
+
+    function test2(str){
+      const croatia = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z='];
+      const arr = []
+      let count = 0;
+
+      for ( let i = 0; i < croatia.length; i++){
+        if(str.includes(croatia[i])){
+          arr.push(croatia[i])
+          count++;
+        }
+      }
+
+      for ( let j = 0; j < arr.length; j++){
+        
+        str = str.replace(arr[j], '')
+
+      }
+      return str.length + count
+
+    }
+
+    console.log(test2('ddz=z='))
+  </script>
+</body>
+
+</html>
