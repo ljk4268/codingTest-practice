@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 1316번</title>
+</head>
+<body>
+  <script>
+    function test2(str){
+      let words = str.split(" ");
+      let count = 0;
+      
+      for ( let i = 0; i < words.length; i++ ){
+        let wordArr = [...words[i]]
+        let resultArr = [];
+        let checked = true;
+
+
+        for ( let j = 0; j < wordArr.length; j++ ){
+          if(wordArr[j] != wordArr[j+1]){
+            if (resultArr.includes(wordArr[j]) == false){
+              resultArr.push(wordArr[j]);
+            } else {
+              checked = false;
+            }
+          }
+        }
+
+        if ( checked ) count ++;
+      }
+      console.log(count)
+    }
+
+    test2('ab aa aca ba bb')
+    // aba abab abcabc a
+
+
+    function test(str){
+      let strArr = [...str];
+      let resultArr = [];
+      let count = 0;
+
+      for ( let i =0; i < strArr.length; i++ ){
+        if(strArr[i] != strArr[i+1]){
+          if (resultArr.includes(strArr[i]) == false) {
+            resultArr.push(strArr[i]);
+          } else {
+            return;
+          }
+        }
+      }
+      count ++;
+
+    }
+
+    test('a')
+  </script>
+</body>
+</html>
