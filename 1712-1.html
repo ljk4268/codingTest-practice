@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 1712번</title>
+</head>
+<body>
+  <script>
+    // a = 고정비용
+    // b = 가변비용
+    // c = 노트북비용 
+
+   // 노트북 비용 * 갯수 > a + b 
+   // 갯수 언제일 때? 
+    function test(a,b,c){
+      let 고정비용 = a;
+      let 가변비용 = b;
+      let 노트북가격 = c;
+      let 판매개수 = 1; 
+
+      console.log(노트북가격 * 판매개수)
+      console.log(고정비용 + (가변비용*판매개수))
+
+      if ( b > c) {
+        return -1
+      }
+
+      while(노트북가격 * 판매개수 <= 고정비용 + (가변비용*판매개수)){
+        판매개수 = 판매개수 + 1;
+      }
+
+      return 판매개수
+
+    }
+
+  
+    console.log(test(1000,70,170))
+  </script>
+</body>
+</html>
