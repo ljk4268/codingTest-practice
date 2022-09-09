@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 1193번</title>
+</head>
+<body>
+  <script>
+    function test(num){
+      let count = 0;
+      let a = 0;
+      let b = 0;
+
+      while(count != num){
+        if ( a == 0 && b == 0 ){
+          a++;
+          b++;
+          count++;
+          if( count == num){
+            break;
+          }
+        }
+
+        if( a%2 == 1 && b%2 == 1){
+          b++;
+          count++;
+          if( count == num){
+            break;
+          }
+        }
+
+        if( a%2 == 1 && b%2 == 0){
+          a++;
+          b--;
+          count++;
+          if( count == num){
+            break;
+          }
+        }
+
+        if( a%2 == 0 && b%2 == 1){
+          a++;
+          count++;
+          if( count == num){
+            break;
+          }
+        }
+
+        if( a > b && a%2 == 1 && b%2 == 1){
+          a--;
+          b++;
+          count++;
+          if( count == num){
+            break;
+          }
+        }
+
+        if( a == b ){
+          a--;
+          b++;
+          count++;
+          if( count == num){
+            break;
+          }
+        }
+
+
+      }
+
+      console.log(a,b)
+    }
+
+    test(8);
+  </script>
+</body>
+</html>
