@@ -17,13 +17,35 @@
 
     // 5로 한 번 뺴주고 
     // 나머지가 3의 배수면 
+
+    let five = 0;
+    let three = 0; 
+    let remainder = 0;
+
     function test(num){
-      let count = 0;
-      let remainder = num;
+      five = parseInt(num/5);
+      remainder = num % 5; 
+
+      while ( five >= 0 ){
+        three = remainder / 3;
+        remainder = remainder % 3; 
+
+        if ( remainder == 0 ){
+          return `5kg ${five}개 3kg ${three}개`
+        }
+
+        five = five - 1; 
+        remainder = num - (five * 5); 
+
+        if ( five == -1 ){
+          return -1
+        }
+      }
+      
 
     }
 
-    test(11)
+    console.log(test(11))
   </script>
 </body>
 </html>
