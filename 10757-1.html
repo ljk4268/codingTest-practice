@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 10757번</title>
+</head>
+<body>
+  <script>
+    function test(x, y){
+      let num1 = [...x]
+      let num2 = [...y]
+
+      if ( num1.length < num2.length ){
+        let need = num2.length - num1.length;
+        for ( let i = 0; i < need; i++ ){
+          num1.unshift(0);
+        }
+      }
+      if ( num2.length < num1.length ){
+        let need = num1.length - num2.length;
+        for ( let i = 0; i < need; i++ ){
+          num2.unshift(0);
+        }
+      }
+
+
+      let count = 0;
+      let resultArr = [];
+
+      for( let i = num1.length-1; i >= 0; i-- ){
+
+        let sum =  Number(num1[i]) + Number(num2[i]) + count;
+        if(sum>=10){
+          sum = String(sum)
+          resultArr.unshift(sum[1])
+          count = 1;
+        } else {
+          sum = String(sum)
+          resultArr.unshift(sum)
+          count = 0;
+        }
+
+      }
+
+      console.log(resultArr)
+
+    }
+
+    test('9223372036854775807', '9223372036854775808')
+  </script>
+</body>
+</html>
