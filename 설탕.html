@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let five = 0;
+    let three = 0;
+    let remainer = 0;
+
+    function test(num){
+      five = parseInt(num / 5);
+      remainder = num % 5;
+
+      while ( remainder >= 0 ){
+        three = parseInt(remainder / 3);
+        remainder = remainder % 3;
+
+
+        if ( remainder == 0 ){
+          return `5kg ${five} 3kg ${three}` 
+        }
+
+        five = five - 1;
+        remainder = num - (five * 5)
+
+        if ( remainder == -1 ){
+          return -1
+        }
+      }
+
+
+    }
+
+    console.log(test(18))
+
+
+  </script>
+  
+</body>
+</html>

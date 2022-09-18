@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 1775번</title>
+</head>
+<body>
+  <script>
+    // k층 0 층부터 시작
+    // n호 1 호부터 시작 
+
+    function test(k,n){
+      
+      let floor = new Array(k+1);
+      
+      for ( let i = 0; i < k+1; i++ ){
+        floor[i] = new Array(n)
+        for ( let j = 0; j < n; j++ ){
+          floor[i][j] = 0;
+          if ( i == 0 ){
+            floor[i][j] = j+1;
+          }
+          if ( i != 0) {
+            for( let m = 0; m <= j; m++ ){
+              floor[i][j] += floor[i-1][m]
+            }
+          }
+        }
+      }
+
+      console.log(floor)
+
+    }
+
+    test(2,3)
+
+  </script>
+</body>
+</html>
