@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 2753번</title>
+</head>
+<body>
+  <script>
+    // 연도가 주어졌을 때, 윤년이면 1, 아니면 0을 출력하는 프로그램을 작성하시오.
+    //  윤년은 연도가 4의 배수이면서, 100의 배수가 아닐 때
+    //  또는 400의 배수일 때이다.
+    // 첫째 줄에 윤년이면 1, 아니면 0을 출력한다.
+    function solution(num){
+      if ( num % 4 === 0 && num % 100 != 0 || num % 400 === 0){
+        return 1;
+      } else {
+        return 0
+      }
+
+    }
+    console.log(solution(2000))
+  </script>
+</body>
+</html>
