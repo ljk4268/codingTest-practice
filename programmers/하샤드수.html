@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>프로그래머스 하샤드 수</title>
+</head>
+<body>
+  <script>
+    function solution(num){
+      let str = num + ''
+      let sum = 0;
+      
+      for(let i =0; i < str.length; i++){
+        sum += Number(str[i])
+      }
+      
+      if( num % sum == 0){
+        return 'true';
+      } else {
+        return 'false';
+      }
+
+    }
+    console.log(solution(18))
+  </script>
+</body>
+</html>

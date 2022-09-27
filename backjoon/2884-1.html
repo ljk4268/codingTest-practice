@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 2884번</title>
+</head>
+<body>
+  <script>
+    function solution(H,M){
+      let time = H;
+      let minutes = M;
+
+      if ( minutes < 45 ){
+        minutes = 60 + minutes - 45
+        if ( time == 0 ){
+          time = 23
+        } else {
+          time -= 1
+        }
+
+      } else {
+        minutes = minutes - 45
+      }
+
+      console.log(time, minutes)
+
+    }
+    solution(23,55)
+  </script>
+</body>
+</html>
