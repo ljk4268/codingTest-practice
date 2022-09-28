@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 2525번</title>
+</head>
+<body>
+  <script>
+    function solution(A,B,C){
+      let hour = A;
+      let minute = B;
+      let making = C;
+
+      let total_making_time = minute + making;
+
+
+      if ( total_making_time / 60 < 1 ){
+        return `조리시간은 ${hour}시 ${total_making_time}분 입니다.`
+      }
+
+      if ( total_making_time / 60 > 1 ){
+        hour += parseInt(total_making_time / 60);
+        minute = parseInt(total_making_time % 60);
+
+        if ( hour >= 24 ){
+          hour -= 24
+        }
+        return `조리시간은 ${hour}시 ${minute}분 입니다.`
+      }
+
+
+
+    }
+
+    console.log(solution(23,48,25))
+  </script>
+</body>
+</html>

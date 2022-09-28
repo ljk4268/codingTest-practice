@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>프로그래머스 정수 내림차순응로 배치하기</title>
+</head>
+<body>
+  <script>
+    function solution(num){
+      let numArr = [...num + ''];
+      let result = '';
+
+      numArr.sort((a,b) => b - a);
+      
+      for( let i = 0; i < numArr.length; i++){
+        result += numArr[i]
+      }
+
+      return Number(result)
+
+    }
+    console.log(solution(118372))
+
+    function solution2(num){
+      let numN = num + ''
+      let newArr = numN.split('').sort().reverse().join('')
+      console.log(newArr*1)
+
+    }
+    solution2(118372)
+  </script>
+</body>
+</html>
