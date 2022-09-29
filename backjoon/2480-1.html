@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 2480번</title>
+</head>
+<body>
+  <script>
+    function solution(...rest){
+      let result = 0;
+      let count = 1;
+
+      let arr = new Array(7).fill(0);
+
+      for ( let i = 0; i < arr.length; i++) {
+        for ( let j = 0; j < rest.length; j++ ){
+          if(i == rest[j]){
+            if ( arr[i] == rest[j]) {
+              count += 1
+              result = rest[j];
+              if ( count == 3 ){
+                result = rest[j]
+              } 
+            } else {
+              arr[i] = rest[j]
+            }
+          }
+        }
+      }
+
+      if ( count == 1 ){
+        result =  Math.max(...arr)
+        return result*100
+      }
+      if ( count == 2 ){
+        return 1000 + result*100
+      }
+      if ( count == 3 ){
+        return 10000 + result*1000
+      }
+
+    }
+
+    console.log(solution(6,2,5))
+  </script>
+</body>
+</html>
