@@ -8,36 +8,27 @@
 </head>
 <body>
   <script>
-    function solution(input){
-
-      const arr = input.split(' ');
-      let result = Number(arr[0]);
-      let count = Number(arr[1]);
+    function solution(a,b){
+      let result = a;
       let sum = 0;
+      let price = 0;
+      let mount = 0;
 
-      let productPrice = 0;
-      let productCount = 0;
-
-      for ( let i = 2; i < arr.length; i ++){
-        
-        if ( i % 2 == 0 ){
-          productPrice = arr[i]
-        } else {
-          productCount = arr[i]
-          sum += productPrice * productCount
+      for ( let i = 0; i < b.length; i ++){
+        for ( let j = 0; j < b[i].length; j++ ){
+          if ( j == 0 ){
+            price = b[i][j]
+          } else {
+            mount = b[i][j]
+          }
         }
-
+        sum += price * mount
       }
       
-      if ( result == sum ){
-        return 'Yes'
-      } 
-        
-      return 'No'
-      
+      console.log(sum)
 
     }
-    console.log(solution('260000 4 20000 5 30000 2 10000 6 5000 8'))
+    solution(260000,[[20000,5], [30000,2], [10000,6], [5000,8]])
   </script>
 </body>
 </html>
