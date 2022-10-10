@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 1110</title>
+</head>
+<body>
+  <script>
+    function solution(num){
+      let first = num;
+      let add = 0;
+      let count = 0;
+
+      num = num.toString().split('')
+      if ( num.length == 1) {
+        num.unshift(0)
+      }
+
+      while ( first != num ){
+        add = Number(num[0]) + Number(num[1])
+        if ( add < 10 ) {
+          add = '0'+add
+        } else {
+          add = add.toString()
+        }
+
+        num = num[1] + add.split('')[1]
+
+        count ++
+
+        console.log(first != num, first, num)
+      }
+
+      console.log(first == num)
+      console.log(typeof(first))
+      console.log(typeof(num))
+
+
+    }
+    solution(26)
+  </script>
+</body>
+</html>
