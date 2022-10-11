@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 10818번</title>
+</head>
+<body>
+  <script>
+    function solution(arr){
+      const maxValue = Math.max(...arr);
+      const minValue = Math.min(...arr);
+
+      return `최대값 : ${maxValue} 최소값: ${minValue}`
+
+    }
+    console.log(solution([20, 10, 35, 30, 7]))
+  </script>
+</body>
+</html>
