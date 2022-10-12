@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>프로그래머스 음양더하기</title>
+</head>
+<body>
+  <script>
+    function solution(absolutes, signs){
+      let answer = 0;
+
+      for ( let i = 0; i < absolutes.length; i++){
+        for ( let j = 0; j < signs.length; j++){
+          if( i == j){
+            if ( signs[j] == true ){
+              sum += absolutes[i]
+            } else {
+              sum -= absolutes[i]
+            }
+          }
+        }
+      }
+
+      return answer
+    }
+
+    solution([1,2,3], [false,false,true])
+
+      
+  </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 2562번</title>
+</head>
+<body>
+  <script>
+    function solution(arr){
+      let maxNum = Math.max(...arr)
+      let answer = arr.indexOf(maxNum) + 1
+      
+      return answer
+
+    }
+
+    console.log(solution([3, 29, 38, 12, 57, 74, 40, 85, 61]))
+  </script>
+</body>
+</html>
