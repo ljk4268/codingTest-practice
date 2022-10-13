@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 3052</title>
+</head>
+<body>
+  <script>
+    function solution(arr, num){
+      let result = []
+      let remain = 0;
+      arr.forEach(element => {
+        remain = element % num
+        if ( !result.includes(remain) ){
+          result.push(remain)
+        }
+        
+      });
+
+      return result.length
+    }
+    console.log(solution([39,40,41,42,43,44,82,83,84,85], 42))
+  </script>
+</body>
+</html>
