@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 1546</title>
+</head>
+<body>
+  <script>
+    function solution(score){
+      let M = Math.max(...score)
+      let newScore = 0;
+      
+      score.forEach(element => {
+        newScore += element / M * 100
+      });
+      console.log(newScore / score.length)
+
+
+    }
+
+    solution([1,100,100,100])
+  </script>
+</body>
+</html>
