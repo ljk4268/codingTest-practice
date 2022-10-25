@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 10809번</title>
+</head>
+<body>
+  <script>
+    function solution(str){
+      let strArr = [...str];
+      let result = [];
+      let eng = [];
+
+      for( let i = 97; i <=122; i++ ){
+        eng.push(String.fromCharCode(i))
+      }
+
+      for( let i = 0; i < eng.length; i++ ){
+        result.push(strArr.indexOf(eng[i]))
+      }
+      return result;
+
+    }
+    solution('baekjoon')
+  </script>
+</body>
+</html>

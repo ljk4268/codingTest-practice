@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>프로그래머스 행렬의 덧셈</title>
+</head>
+<body>
+  <script>
+    function solution(arr1, arr2){
+
+      for ( let i = 0; i < arr1.length; i++ ){
+        for ( let j = 0; j < arr2.length; j++ ){
+          if(i == j){
+            for ( let k = 0; k < arr2[j].length; k++ ){
+              arr1[i][k]+=arr2[j][k]
+            }
+          }
+        }
+    }
+
+      return arr1
+
+    }
+    solution([[1],[2]], [[3],[4]])
+  </script>
+</body>
+</html>
