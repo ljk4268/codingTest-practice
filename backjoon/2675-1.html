@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 2675번</title>
+</head>
+<body>
+  <script>
+    function solution(num,str){
+      let result = ''
+
+      for ( let i = 0; i < str.length; i++ ){
+        for ( let j = 0; j < num; j++){
+          result+=str[i]
+        }
+      }
+      console.log(result)
+
+    }
+    solution(5,'/HTP')
+  </script>
+</body>
+</html>
