@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 1157번</title>
+</head>
+<body>
+  <script>
+    function solution(str){
+      let strArr = [...str.toUpperCase()];
+      let zeroArr = [];
+      let english = [];
+      
+
+      for ( let i = 0; i < strArr.length; i++ ){
+        if ( !english.includes(strArr[i])){
+          english.push(strArr[i])
+        }
+      }
+
+      for ( let i = 0; i < english.length; i++ ){
+        let count = 0;
+        for ( let j = 0; j < str.length; j++ ){
+          if(english[i] == str.toUpperCase()[j]){
+            count++
+          }
+        }
+        zeroArr.push(count)
+      }
+
+      let max = Math.max(...zeroArr);
+      let duplicate = [...new Set(zeroArr)];
+
+
+      if ( zeroArr.length != duplicate.length ){
+        return '?'
+      } else {
+        let index = zeroArr.indexOf(max);
+        return english[index]
+      }
+
+    }
+    console.log(solution('Mississipi'))
+  </script>
+</body>
+</html>
