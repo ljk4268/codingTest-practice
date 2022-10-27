@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>해커랭크 시간변환</title>
+</head>
+<body>
+  <script>
+    function solution(s) {
+      let strArr = s.substr(0,8).split(':')
+
+      let time =(strArr[0])
+      let minutes = strArr[1]
+      let seconds = strArr[2]
+
+      if(s.includes('PM')){
+        if ( time != '12'){
+          time = Number(strArr[0]) + 12
+        } 
+      }else{
+        if ( time == '12'){
+          time = '00'
+        }else {
+          time = time.padStart(2,'0')
+        }
+      }
+
+      return time + ":" + minutes + ":" + seconds
+
+
+    }
+
+    console.log(solution('12:01:00AM'))
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>해커랭크 최소최대합계</title>
+</head>
+<body>
+  <script>
+    function solution(arr){
+      let max = Math.max(...arr)
+      let min = Math.min(...arr)
+      let maxSum = 0;
+      let minSum = 0;
+
+      arr.forEach(element =>{
+        if ( element != min ){
+          maxSum += element
+        } 
+      })
+
+      arr.forEach(element =>{
+        if ( element != max ){
+          minSum += element
+        } 
+      })
+
+      if ( maxSum == minSum ){
+        for ( let i = 0; i < 4; i++){
+          minSum += arr[i]
+        }
+        maxSum = minSum
+      }
+
+      console.log(minSum + ' ' + maxSum)
+
+    }
+    solution([5,5,5,5,5])
+  </script>
+</body>
+</html>
