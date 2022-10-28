@@ -8,24 +8,33 @@
 </head>
 <body>
   <script>
-    function solution(s) {
-      let strArr = s.substr(0,8).split(':')
+    // 시간 형식은 HH:mm:ss:AM 혹은 PM
+    // AM 의 경우 01:00:00~11:59:59 -> 01:00:00~11:59:59 / 12:00:00~12:59:59 -> 00:00:00~00:59:59
+    // PM 은 01:00:00~11:59:59 -> 13:00:00~23:59:59   / 12:00:00~12:59:59 -> 동일
+    // 00:00:00 ~ 23:59:59 에서 00:00:00 ~ 11:59:59 은 AM
+    // 12:00:00 ~ 23:59:59 는 PM 
+    // 12 , 1, 2, ... ,11 AM /  12 , 1, 2, .. 11 PM
+    // 12 , 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ,11 / 12 , 1 ,2, 3, 4, 5, 6, 7, 8, 9, 10, 11 
+    // 0 , 1, 2, 3, 4, 5, 6, 7, 8, ,9, 10 ,11 , 0+12, 1+12, 2+12, 3+12,4+12,5+12,6+12,7+12,20,21,22,11+12
+    // 12로 나눈 나머지값을 구함 12-> 0 1-> 1 , ... 11-> 11
+    // PM 의경우 12를 더함 끗
 
-      let time =(strArr[0])
+    //[0,.. 12,13,14.,23]
+    function solution(s) {
+
+      let strArr = s.substr(0,8).split(':')
+      let time =0
+
+      if(s.includes('PM')) {
+        time+=12
+      }
+      
+      time += Number(strArr[0]) % 12 
+      time = String(time).padStart(2,'0')
+
       let minutes = strArr[1]
       let seconds = strArr[2]
 
-      if(s.includes('PM')){
-        if ( time != '12'){
-          time = Number(strArr[0]) + 12
-        } 
-      }else{
-        if ( time == '12'){
-          time = '00'
-        }else {
-          time = time.padStart(2,'0')
-        }
-      }
 
       return time + ":" + minutes + ":" + seconds
 

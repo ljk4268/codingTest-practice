@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>해커랭크 Flipping bits</title>
+</head>
+<body>
+  <script>
+    // 10진수 2진수로 바꾸기 toString(2)
+    // 2진수 10진수로 바꾸기 parseInt('2진수', 2);
+    function solution(n){
+      let binary = n.toString(2).padStart(32,0)
+      let newNum = [];
+
+      for ( let i = 0; i < binary.length; i++ ){
+        if(binary[i] == '0'){
+          newNum.push(1)
+        } else {
+          newNum.push(0)
+        }
+      }
+
+      newNum = newNum.join("")
+
+      return parseInt(newNum,2)
+
+    }
+    solution(1)
+  </script>
+</body>
+</html>
