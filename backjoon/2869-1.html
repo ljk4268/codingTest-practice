@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 2869번</title>
+</head>
+<body>
+  <script>
+    // v미터인 나무막대에 올라감
+    // 낮에는 a미터만큼 올라갈 수 있음
+    // 밤에는 b미터만큼 미끌어짐
+    // 정상에 올라가면 미끄러지지 않음. 
+    // 나무막대 올라가려면 며칠 걸릴까?
+    function solution(a,b,v){
+      let totalLength = v;
+      let currentLength = 0;
+      let day = 1;
+
+      while (true){
+        currentLength += a; 
+        if ( currentLength < totalLength ){
+          currentLength -= b;
+          day ++;
+        }
+        
+        if ( currentLength >= totalLength ){
+          break
+        }
+
+      }
+      return day
+    }
+    console.log(solution(5,1,6))
+  </script>
+</body>
+</html>

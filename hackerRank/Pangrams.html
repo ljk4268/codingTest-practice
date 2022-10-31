@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>해커랭크 Pangrams</title>
+</head>
+<body>
+  <script>
+    function solution(str){
+      str = str.toLowerCase().split(' ').join('')
+      let ascilArr = []
+
+      for ( let i = 0; i < str.length; i++ ){
+        ascilArr.push(str[i].charCodeAt())
+      }
+
+      for ( let i = 97; i <= 122; i++ ){
+        if(!ascilArr.includes(i)) return 'not pangram'
+      }
+      return 'pangram'
+    }
+    console.log(solution('We promptly judged antique ivory buckles for the prize'))
+  </script>
+</body>
+</html>
