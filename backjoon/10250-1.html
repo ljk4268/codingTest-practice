@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 10250번</title>
+</head>
+<body>
+  <script>
+    // 1. 101
+    // 2. 201
+    // 3. 301
+    // 4. 401
+    // 5. 501
+    // 6. 601
+    // 7. 102
+    // 8. 202
+    // 9. 302
+    // 10.402
+    // 호텔 층수 , 각층의 방수, 몇번쨰손님
+    function solution(H,W,N){
+      let count = 0;
+      let floorCount = 0;
+      let roomCount = 0;
+      let room = 0;
+
+      for ( let i = 0; i < W; i++ ){
+        let floor = 0;
+        room ++;
+          for ( let j = 0; j < H; j++ ){
+
+            if ( floorCount == H ){
+              floor = 0
+            }
+            if(count != N){
+              floor += 100;
+              count ++;
+              floorCount ++;
+            }
+            else if (count == N){
+              return room+floor
+            }
+          }
+          
+        }
+    }
+
+    
+    console.log(solution(6,12,10))
+  </script>
+</body>
+</html>
