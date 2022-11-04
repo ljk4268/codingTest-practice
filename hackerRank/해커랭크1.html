@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function solution(arr,k){
+      let totalLength = arr.length;
+      let length = arr.length;
+      let sum = 0;
+      
+
+      while(true){
+        for ( let i = 0; i < length; i++ ){
+          sum = 0;
+          
+          if ( i + length > totalLength) break
+
+          for ( let j = i; j < i+length; j++ ){
+            sum += arr[j];
+          }
+
+          if ( sum <= k ) return length
+        }
+
+        length --; 
+
+      }
+
+    }
+    console.log(solution([74,659,931,273,545,879,924,710,441,166,493,43,988,504,328,730,841,613,304,170,710,158,561,934,100,279,817,336,98,827,513,268,811,634,980,150,580,822,968,673,394,337,486,746,229,92,195,358,2,154,709,945,669,491,125,197,531,904,723,667,550] , 22337))
+  </script>
+</body>
+</html>
+
+

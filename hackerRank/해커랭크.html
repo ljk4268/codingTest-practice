@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  function solution(num){
+
+      let str = String(num)
+      let maxNum = str
+      let minNum = str
+
+      for ( let i = 0; i < str.length; i++){
+        maxNum = maxNum.replaceAll(str[i],'9')
+        if ( maxNum != str) break
+      }
+      
+      for ( let i = 0; i < str.length; i++){
+        if ( String(Number(minNum.replaceAll(str[i],'0'))).length == str.length && minNum.replaceAll(str[i],'0') != '0'){
+          minNum = minNum.replaceAll(str[i],'0')
+        } 
+        else if (minNum.replaceAll(str[i],'1') != str){
+          minNum = minNum.replaceAll(str[i],'1')
+        }
+
+        if (minNum != str ) break
+        
+      }
+
+      return maxNum-minNum
+      
+      
+      
+    }
+
+    solution(123512)
+  </script>
+</body>
+</html>
