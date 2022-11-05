@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>프로그래머스 3진법 뒤집기</title>
+</head>
+<body>
+  <script>
+    function solution(n){
+      let three = n.toString(3).split('').reverse().join('')
+
+      return parseInt(three,3)
+
+    }
+    solution(45)
+  </script>
+</body>
+</html>
