@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>프로그래머스 예산</title>
+</head>
+<body>
+  <script>
+    function solution(d, budget){
+
+      let sum = 0;
+      let count = 0;
+
+      d.sort((a,b) => {
+        return a - b;
+      })
+      d.forEach(element => {
+        sum += element;
+        if ( sum <= budget){
+          console.log(sum)
+
+          count++
+        }
+      });
+      
+      console.log(count)
+    }
+    console.log(solution([1,3,2,4,5], 9))
+    
+  </script>
+</body>
+</html>
