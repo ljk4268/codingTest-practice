@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>해커랭크 find the median</title>
+</head>
+<body>
+  <script>
+    function solution(arr){
+      let index = Math.floor(arr.length / 2)
+      arr.sort((a,b)=>{
+        return a - b
+      })
+      return arr[index]
+    }
+    solution([1,2,3,4,6,5,3])
+  </script>
+</body>
+</html>

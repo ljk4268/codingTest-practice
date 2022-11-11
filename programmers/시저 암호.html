@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>프로그래머스 시저 암호</title>
+</head>
+<body>
+  <script>
+    function solution(s,n){
+      let result = '';
+
+      for ( let i = 0; i < s.length; i++ ){
+        if ( s[i] == ' '){
+          result += s[i]
+        }else{
+          let ascilNum = s[i].charCodeAt()
+          if( 96 < ascilNum && ascilNum < 123){
+            let nSum = ascilNum - 97 + n
+            let remainder = nSum % 26
+            result += String.fromCharCode(97+remainder)
+          } else if (64 < ascilNum && ascilNum < 91){
+            let nSum = ascilNum - 65 + n
+            let remainder = nSum % 26
+            result += String.fromCharCode(65+remainder)
+          }
+        }
+        
+      }
+      return result
+    }
+    solution('a B z',4) 
+    // e F d
+  </script>
+</body>
+</html>
