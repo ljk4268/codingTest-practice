@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 9020</title>
+</head>
+<body>
+  <script>
+    // 1,2,3,,5,,7,
+
+    function solution(n){
+      let prime = [];
+      let num1 = 0;
+      let num2 = 0;
+
+      const isPrime = (n) => {
+        for ( let i = 2; i < n; i++ ){
+          if ( n % i == 0 ){
+            return false;
+          }
+        }
+        return true;
+      }
+
+      for ( let i = 2; i <= n; i++ ){
+        if ( isPrime(i) ){
+          prime.push(i)
+        }
+      }
+
+      for ( let i = 0; i < prime.length; i++ ){
+        for ( let j = i+1; j < prime.length; j++ ){
+          if (prime[i] + prime[j] == n){
+            num1 = prime[i]
+            num2 = prime[j]
+          }
+        }
+      }
+      
+      return `${num1} ${num2}`
+
+    }
+    console.log(solution(20))
+  </script>
+</body>
+</html>
