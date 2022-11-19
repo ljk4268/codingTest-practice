@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 2597번</title>
+</head>
+<body>
+  <script>
+    // 평균값을 구한다. 
+    // 들어온 모든 수를 합하고 배열의 길이로 나눠준다. 
+    // 중앙값을 구한다. 
+    // 0 0 0 0 0 0 0
+    function solution(array){
+      let average = 0;
+      let sum = 0;
+      let middle = 0; 
+      let middleResult = 0;
+
+      array.forEach(element => {
+        sum += element;
+        average = sum / array.length;
+      });
+
+      array.sort((a,b)=>{
+        return a - b;
+      })
+      
+      middle =  parseInt(array.length / 2) + 1;
+      array.forEach((element,i) => {
+        if (i === middle - 1){
+          middleResult = element
+        }
+      })
+
+      console.log(average, middleResult)
+    }
+    solution([10,40,30,60,30])
+  </script>
+</body>
+</html>

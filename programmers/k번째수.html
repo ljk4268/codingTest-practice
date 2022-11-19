@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>프로그래머스 k번째 수</title>
+</head>
+<body>
+  <script>
+    // i번째 숫자부터 
+    // j번째 숫자까지 
+    // 자르고 정렬 
+    
+    function solution(array, commands){
+      let result = [];
+
+      function solving(array,command){
+        let sliceI = command[0] - 1;
+        let sliceJ = command[1];
+        let index = command[2] - 1;
+        let result = 0;
+
+        let sliceArry = array.slice(sliceI,sliceJ);
+        sliceArry.sort((a,b)=>{
+          return a - b;
+        })
+
+        sliceArry.forEach((element, i) => {
+          if(i === index){
+            result = element
+          }
+        });
+
+        return result;
+      }
+
+
+      for ( let i = 0; i < commands.length; i++ ){
+        let resultNum = solving(array, commands[i])
+        result.push(resultNum)
+      }
+
+      return result
+
+    }
+    console.log(solution([1, 5, 2, 6, 3, 7, 4],[[2, 5, 3], [4, 4, 1], [1, 7, 3]]	))
+  </script>
+</body>
+</html>
