@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>프로그래머스 숫자 문자열과 영단어
+  </title>
+</head>
+<body>
+  <script>
+    function solution(str){
+      let engArr = ['zero','one','two','three','four','five','six','seven','eight','nine']
+      let num = ['0','1','2','3','4','5','6','7','8','9']
+      let strOrigin = str;
+
+      engArr.forEach(element => {
+
+        if(str.indexOf(element) != -1){
+          let indexStart = str.indexOf(element);
+          let indexEnd = element.length + indexStart;
+          let findStr = str.substring(indexStart,indexEnd);
+          if(str.includes(findStr)){
+            let index = engArr.indexOf(findStr)
+            str = str.replaceAll(findStr,num[index])
+          }
+        }
+      })
+      return Number(str)
+    }
+    solution("23fourfoursix7")
+
+    function solution2(s){
+      let numbers = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+      var answer = s;
+
+      console.log(answer.split(numbers[0]).join(0));
+
+      // for(let i=0; i< numbers.length; i++) {
+      //     let arr = answer.split(numbers[i]);
+      //     answer = arr.join(i);
+      // }
+
+      console.log(answer)
+    }
+    solution2("23fourfoursix7")
+
+    // 정규식 표현
+    function solution(s) {
+    s = s.replace(/zero/gi, 0)
+    .replace(/one/gi, 1)
+    .replace(/two/gi, 2)
+    .replace(/three/gi, 3)
+    .replace(/four/gi, 4)
+    .replace(/five/gi, 5)
+    .replace(/six/gi, 6)
+    .replace(/seven/gi, 7)
+    .replace(/eight/gi, 8)
+    .replace(/nine/gi, 9)
+    return parseInt(s);
+}
+  </script>
+</body>
+</html>

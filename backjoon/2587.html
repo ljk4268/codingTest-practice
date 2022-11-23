@@ -18,15 +18,17 @@
       let middle = 0; 
       let middleResult = 0;
 
+      array.sort((a,b)=>{
+        return a - b;
+      })
+
+      // 평균값 구하기
       array.forEach(element => {
         sum += element;
         average = sum / array.length;
       });
-
-      array.sort((a,b)=>{
-        return a - b;
-      })
       
+      // 중앙값 구하기
       middle =  parseInt(array.length / 2) + 1;
       array.forEach((element,i) => {
         if (i === middle - 1){
