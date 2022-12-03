@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 25305번</title>
+</head>
+<body>
+  <script>
+    // N = 응시자 수
+    // k = 상을 받는 사람 수
+    // x = 응시자들의 점수
+    // 상을 받는 커트라인은 몇점?
+    // 그 중 가장 낮은 사람의 점수는?
+    function solution(N,k,arrX){
+      let cutLine = 0;
+
+      arrX.sort((a,b)=> b - a);
+      
+      for ( let i = 0; i < k; i++ ){
+        if ( i == k-1 ){
+          cutLine = arrX[i];
+        }
+      }
+
+      console.log(cutLine)
+
+    }
+    solution(5,2,[100,76,85,93,98])
+  </script>
+</body>
+</html>
