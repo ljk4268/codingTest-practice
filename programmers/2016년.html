@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>프로그래머스 2016년</title>
+</head>
+<body>
+  <script>
+    function solution(a,b){
+
+      const week = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
+      let date = new Date(2016,a-1,b).getDay();
+      return week[date]
+      
+    }
+    solution(5,24)
+  </script>
+</body>
+</html>
