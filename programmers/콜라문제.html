@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // a = 마트에 줘야하는 병수
+    // b = 빈 병 a개 가져다주면 받는 콜라 병수
+    // c = 가지고 있는 빈 병 개수
+    function solution(a,b,n){
+      let totalSum = 0;
+      let myBottle = n;
+
+      while(myBottle >= a){
+        totalSum += saveValue(a, myBottle).quotient
+        myBottle = saveValue(a, myBottle).sum
+      }
+      return totalSum;
+
+    }
+    solution(2,1,20)
+
+    function saveValue(bottle, myBottle){
+      const quotient = parseInt(myBottle / bottle)
+      const remain = myBottle % bottle
+      const sum = quotient + remain
+      const result = {quotient, sum}
+      return result;
+    }
+  </script>
+</body>
+</html>
