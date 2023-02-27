@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>프로그래머스 푸드파이트대회</title>
+</head>
+<body>
+  <script>
+    // food[0] = 물 무조건 1로 들어옴 
+    // food[i] = 음식의 갯수 
+    function solution(food){
+      let orderOfFood = [0];
+      for( let i = food.length-1; i>=0; i--){
+        for ( let j = 0; j < parseInt(food[i] / 2); j++ ){
+          orderOfFood.push(i)
+          orderOfFood.unshift(i)
+        }
+      }
+      console.log(orderOfFood) 
+    }
+    solution([1,3,4,6])
+  </script>
+</body>
+</html>
