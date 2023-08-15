@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 2444번</title>
+</head>
+<body>
+  <script>
+   // 첫째 줄부터 2×N-1번째 줄까지 차례대로 별을 출력한다.
+//     * 1
+//    *** 3
+//   ***** 5
+//  ******* 7
+// ********* 9 
+//  *******
+//   *****
+//    ***
+//     *
+
+// 반복횟수는 2xN-1 
+// 빈칸이 찍히는 갯수: {(2xN-1) - 1} / 2
+// 별이 찍히는 갯수: 1개부터 2개씩 늘어나고, 2xN-1 만나면 2개씩 줄어듬
+
+const makeStar = (num) => {
+  const star = '*'
+  const blankSpace = ' '
+  let startBlankCount = ((2*num-1) - 1) / 2
+  let count = 1;
+  let check = false;
+  let result = ''
+
+  for (let i = 1; i <= 2*num -1; i++){
+    for(k=0; k<startBlankCount; k++){
+      result += blankSpace
+    }
+    for(j = 0; j<count; j++){
+      result += star
+    }
+    result += '\n'
+
+    if(count == 2*num -1){
+      check = true;
+    }
+    if(check){
+      startBlankCount ++;
+      count = count - 2
+    } else {
+      startBlankCount --;
+      count = count + 2
+    }
+  }
+  return result;
+}
+
+const answer = makeStar(5)
+console.log(answer)
+
+  </script>
+</body>
+</html>
