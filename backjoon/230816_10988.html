@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>백준 10988번</title>
+</head>
+<body>
+  <script>
+// 알파벳 소문자로만 이루어진 단어가 주어진다. 이때, 이 단어가 팰린드롬인지 아닌지 확인하는 프로그램을 작성하시오.
+// 팰린드롬이란 앞으로 읽을 때와 거꾸로 읽을 때 똑같은 단어를 말한다. 
+// level, noon은 팰린드롬이고, baekjoon, online, judge는 팰린드롬이 아니다.
+// 첫째 줄에 팰린드롬이면 1, 아니면 0을 출력
+
+// 입력받은 문자열을 배열로 만들고 
+// 배열을 뒤집은 변수도 하나 만듬
+// 각 자리수의 문자열을 비교해서 하나라도 다르면 0을 출력하게 만들고 
+// 자리수마다 문자열이 다 똑같으면 1이 출력되게 만듬. 
+
+const isPalindrome = (str) => {
+  const strArray = [...str]
+  const reverseStrArray = [...str].reverse()
+  let result = 0;
+
+  strArray.forEach((element, i) => {
+    if(element != reverseStrArray[i]) return
+    result = 1;
+  })
+
+  return result
+}
+const answer = isPalindrome('baekjoon')
+console.log(answer)
+
+// 💡 chat gpt가 알려준 방식
+// 내가 짠 코드는 문자열 전체를 배열로 변환하고 역순으로 뒤집은 배열을 생성해서 성능적으로 비효율적이라고함
+
+const isPalindromeGpt = (str) => {
+  // 문자열의 길이를 구하고
+  const length = str.length;
+  // 문자열 길이의 반을 구함
+  // 문자열을 절반만 순회하도록 하기 위함
+  // 문자열의 길이가 홀수인 경우에 중앙에 있는 문자열은 비교하지 않아도 됨!
+  const mid = Math.floor(length / 2);
+
+  // 문자열 길이의 반만큼 반복문을 돌면서 
+  // 첫자리와 마지막자리의 비교를 시작으로 문자열을 비교할 수 있음 
+  // 문자열의 절반만 순회하면 모든 비교를 수행할 수 있음. 
+  for (let i = 0; i < mid; i++) {
+    // 0번째 !== 8-1-0번째
+    // 1번쨰 !== 8-1-1번째
+    // 반복문이 index 0부터 시작함으로 문자의 가장 끝에있는건 7(=(8-1))
+    // 자릿수가 올라갈수록 ( 0 > 1) 맨뒤에있는 문자에서 그 앞에있는 문자와 비교해야함으로 8-1-i라느느 식을 써야함. 
+    if (str[i] !== str[length - 1 - i]) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
+const answerGpt = isPalindromeGpt('baekjoon');
+console.log(answerGpt); // false
+  </script>
+</body>
+</html>
