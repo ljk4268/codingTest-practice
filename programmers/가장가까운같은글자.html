@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>프로그래머스-가장 가까운 같은 글자</title>
+</head>
+<body>
+  <script>
+    const solution = (str) => {
+      let newArr = [];
+      let strArr = [...str]
+      let result = []
+
+      strArr.forEach((str, i) => {
+        if(!newArr.includes(str)){
+          newArr.push(str)
+          result.push(-1)
+        } else {
+          result.push(i - newArr.lastIndexOf(str))
+          newArr.push(str)
+        }
+      })
+      return result
+    }
+    console.log(solution('foobar'))
+  </script>
+</body>
+</html>
